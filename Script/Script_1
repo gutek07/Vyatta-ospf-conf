@@ -1,0 +1,11 @@
+#!/bin/bash
+VBoxManage modifyvm "R1" --pae on;
+VBoxManage modifyvm "R1" --nic1 nat --cableconnected1 on;
+VBoxManage modifyvm "R1" --natpf1 "guestSSH,tcp,127.0.0.1,2222,,22";
+VBoxManage modifyvm "R1" --nic2 intnet --intnet2 internalkard --cableconnected2 on; 
+VBoxManage modifyvm "R1" --nic3 intnet --intnet3 internalkard --cableconnected3 on;
+
+
+
+
+ 

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+
+
+VBoxManage modifyvm "R2" --nic1 none;
+VBoxManage modifyvm "R2" --nic2 none;
+VBoxManage modifyvm "R2" --nic3 none;
+
+
+VBoxManage modifyvm "R2" --nic1 intnet --intnet1 internalkard --cableconnected1 on;
+VBoxManage modifyvm "R2" --nic2 intnet --intnet2 internalkard --cableconnected2 on;
+VBoxManage modifyvm "R2" --nic3 nat --cableconnected3 on;
+VBoxManage modifyvm "R2" --natpf1 delete "guestSSH";
+VBoxManage modifyvm "R2" --natpf3 delete "guestSSH";
+VBoxManage modifyvm "R2" --natpf3 "guestSSH,tcp,127.0.0.2,2222,,22";
+
+VBoxManage modifyvm "R3" --nic1 none;
+VBoxManage modifyvm "R3" --nic2 none;
+VBoxManage modifyvm "R3" --nic3 none;
+VBoxManage modifyvm "R3" --nic4 none;
+
+VBoxManage modifyvm "R3" --nic1 intnet --intnet1 internalkard --cableconnected1 on; 
+VBoxManage modifyvm "R3" --nic2 intnet --intnet2 internalkard --cableconnected2 on;
+VBoxManage modifyvm "R3" --nic3 intnet --intnet3 internalkard --cableconnected3 on;
+VBoxManage modifyvm "R3" --nic4 nat --cableconnected4 on;
+VBoxManage modifyvm "R3" --natpf1 delete "guestSSH";
+VBoxManage modifyvm "R3" --natpf4 delete "guestSSH";
+VBoxManage modifyvm "R3" --natpf4 "guestSSH,tcp,127.0.0.3,2222,,22";
+
+
+VBoxManage modifyvm "R4" --nic1 none;
+VBoxManage modifyvm "R4" --nic2 none;
+VBoxManage modifyvm "R4" --nic3 none;
+
+VBoxManage modifyvm "R4" --nic1 intnet --intnet1 internalkard --cableconnected1 on;
+VBoxManage modifyvm "R4" --nic2 intnet --intnet2 internalkard --cableconnected2 on;
+VBoxManage modifyvm "R4" --nic3 nat --cableconnected3 on;
+VBoxManage modifyvm "R4" --natpf1 delete "guestSSH";
+VBoxManage modifyvm "R4" --natpf3 delete "guestSSH";
+VBoxManage modifyvm "R4" --natpf3 "guestSSH,tcp,127.0.0.4,2222,,22";

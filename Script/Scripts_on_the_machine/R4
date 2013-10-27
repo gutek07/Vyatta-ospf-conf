@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo rm -r /config/config.boot
+sudo cp .config-basic-ospf/confR4 /config/config.boot
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+cd Scripts_on_the_machine
+scp -P 2222 -r .config-basic-ospf Clear R1 R2 R3 R4 vyatta@127.0.0.1:~/;
+
+

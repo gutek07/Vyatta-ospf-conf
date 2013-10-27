@@ -1,0 +1,115 @@
+1) Create VirtualMachine with the parameter: 
+		Name: R1 
+		Type: Linux 
+		Version: Debian; 
+		1 GB space on the VHD
+		512 MB vram
+2) Run "./Script1"
+
+3) Install clear Vyatta on this machine with user "vyatta" and password "vyatta" and default settings.
+
+4) Remove Vyatta-livecd from VCD-ROM
+
+5) Run R1 machine and login as "vyatta" user and "vyatta" password
+
+6) Execute command:
+                    "config" press enter
+			
+		    "set service ssh" press enter
+			
+		    "set interfaces ethernet eth0 address dhcp" press enter
+			
+		    "commit" press enter
+			
+		    "save" press enter
+			
+		    
+7) Run "./Script_2"
+
+		    "exit" press enter
+			
+		    "poweroff" press enter
+			
+		    "yes" press enter
+
+8) Run "./Script_3" - This script will create machine from topology.
+
+9) Run machine R1, R2, R3, R4.
+
+Now you have to run script to configuration each interfaces and protocol on the routers.
+
+You cane do it by using ssh connection or directly on the machine.
+    A_) By the ssh
+	* execute on the router R1: 
+		"ssh -p 2222 vyatta@127.0.0.1"		
+		enter the password "vyatta"
+		"./R1" 
+		"configure"
+		"load"
+		"commit"
+
+	* execute on the router R2: 
+		"ssh -p 2222 vyatta@127.0.0.2"		
+		enter the password "vyatta"
+		"./R2" 
+		"configure"
+		"load"
+		"commit"
+
+	* execute on the router R3: 
+		"ssh -p 2222 vyatta@127.0.0.3"		
+		enter the password "vyatta"
+		"./R3" 
+		"configure"
+		"load"
+		"commit"
+
+	* execute on the router R4: 
+		"ssh -p 2222 vyatta@127.0.0.4"		
+		enter the password "vyatta"
+		"./R4" 
+		"configure"
+		"load"
+		"commit"
+
+
+
+
+    B_) By the directly on the machine
+	* execute on the router R1 (in the home directly ~/):
+		"./R1" 
+		"configure"
+		"load"
+		"commit"
+
+	* execute on the router R2 (in the home directly ~/):
+		"./R2" 
+		"configure"
+		"load"
+		"commit"
+
+	* execute on the router R3 (in the home directly ~/):
+		"./R3" 
+		"configure"
+		"load"
+		"commit"
+
+	* execute on the router R4 (in the home directly ~/):
+		"./R4" 
+		"configure"
+		"load"
+		"commit"
+
+10) Run "./Script_4"
+
+
+
+
+
+
+
+
+
+
+
+

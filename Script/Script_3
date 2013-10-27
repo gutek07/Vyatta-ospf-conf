@@ -1,0 +1,15 @@
+#!/bin/bash
+
+VBoxManage clonevm "R1" --mode all --options keepallmacs --name "R2" --register;
+VBoxManage modifyvm "R2" --natpf1 delete "guestSSH";
+VBoxManage modifyvm "R2" --natpf1 "guestSSH,tcp,127.0.0.2,2222,,22";
+
+
+VBoxManage clonevm "R2" --mode all --options keepallmacs --name "R3" --register;
+VBoxManage modifyvm "R3" --natpf1 delete "guestSSH";
+VBoxManage modifyvm "R3" --natpf1 "guestSSH,tcp,127.0.0.3,2222,,22";
+
+
+VBoxManage clonevm "R2" --mode all --options keepallmacs --name "R4" --register;
+VBoxManage modifyvm "R4" --natpf1 delete "guestSSH";
+VBoxManage modifyvm "R4" --natpf1 "guestSSH,tcp,127.0.0.4,2222,,22";
